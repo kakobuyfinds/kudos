@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#243d39">
+  <title>FishGoo spreadsheet : catégories, tailles et guide QC</title>
+  <meta name="description" content="Comprendre FishGoo spreadsheet : explorer les catégories, comparer les tailles, lire les photos QC et préparer son budget avant de consulter cafans.com.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="FishGoo spreadsheet : mieux comparer avant de choisir">
+  <meta property="og:description" content="Un guide indépendant en français : catégories mode, mesures utiles, photos QC et points à vérifier avant une commande.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="FishGoo spreadsheet : le carnet de sélection">
+  <meta name="twitter:description" content="Catégories, tailles, contrôle visuel et budget : une méthode simple pour organiser vos recherches.">
+
+  <!--
+    Fichier : index.html
+    Aucun canonical fictif : renseigner l’URL réelle de cette page après déploiement.
+
+    Recherche éditoriale : résultats web consultés pour « FishGoo spreadsheet ».
+    L’outil disponible ne permet pas de certifier les dix premiers résultats
+    d’une première page Google. Aucun classement Google n’est donc revendiqué.
+
+    Dix domaines examinés, à partir des pages ou des extraits disponibles :
+    1. fishgoo.app — guide, recherche de produits, QC, préparation du colis.
+    2. qcradar.com/fishgoo-spreadsheet — liens, photos QC, distinction entre
+       prix de référence et coût complet.
+    3. fishgoo.net/help-center/ — parcours d’achat et questions de livraison.
+    4. usfansyupoo.com/agents/fishgoo/ — références produit, options et catégories.
+    5. fishgoo.info — organisation des listes et recherche par catégorie
+       (extrait de recherche ; page non récupérée directement).
+    6. fishgooreps.com — champs de comparaison et suivi des décisions.
+    7. fishgoopicklist.com — découverte par nom, catégorie et identifiant.
+    8. fishgoowithqc.com — photos d’entrepôt et recherche de références.
+    9. fishgoo.org.uk/guides/what-is-a-fishgoo-spreadsheet —
+       définition, limites et fraîcheur des informations.
+    10. fishgoo.delivery — navigation par familles et guides d’achat
+        (extrait de recherche).
+
+    Les chiffres de catalogue, promotions, avis et engagements de ces sites
+    ne sont pas repris. Les conseils ci-dessous sont une synthèse originale.
+
+    Axes secondaires recommandés :
+    - guide FishGoo spreadsheet
+    - FishGoo spreadsheet chaussures
+    - photos QC FishGoo
+    - guide des tailles FishGoo
+    - budget livraison FishGoo
+
+    30 intentions de longue traîne, réparties par sujet dans le contenu :
+    comprendre un FishGoo spreadsheet ; utiliser un tableau de produits FishGoo ;
+    organiser une sélection de vêtements ; vérifier une référence Weidian ;
+    comparer un lien Taobao ; noter une référence 1688 ;
+    retrouver un identifiant produit ; vérifier une variante avant commande ;
+    comparer des chaussures par mesures ; lire une longueur intérieure ;
+    examiner les coutures de sneakers ; choisir une largeur de chaussure ;
+    mesurer un sweat à plat ; comparer les épaules d’un t-shirt ;
+    vérifier la longueur des manches ; choisir une veste avec des couches ;
+    comparer la taille d’un pantalon ; mesurer l’entrejambe d’un short ;
+    vérifier le réglage d’une casquette ; comparer les mesures d’un ensemble ;
+    consulter la composition des sous-vêtements ; vérifier un flocage de maillot ;
+    contrôler le fermoir d’un bijou ; examiner les finitions d’un foulard ;
+    lire des photos QC avant expédition ; demander une photo de détail ;
+    distinguer photo vendeur et photo d’entrepôt ;
+    calculer un budget total de commande ; comprendre le poids volumétrique ;
+    vérifier les conditions de retour.
+  -->
+
+  <style>
+    :root{
+      --paper:#f5f2e9;
+      --white:#fffdf8;
+      --ink:#243d39;
+      --muted:#53645e;
+      --line:#d7dace;
+      --accent:#b6462e;
+      --lime:#e4edb4;
+      --radius:5px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-underline-offset:4px}
+    a:hover{color:var(--accent)}
+    a:focus-visible,summary:focus-visible{
+      outline:3px solid var(--accent);
+      outline-offset:5px;
+    }
+    img{display:block;max-width:100%;height:auto}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2,h3{line-height:1.12;text-wrap:balance}
+    h1,h2{
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:400;
+    }
+    h1{font-size:clamp(2.7rem,6vw,5.7rem);letter-spacing:-.055em}
+    h2{font-size:clamp(2rem,3.6vw,3.3rem);letter-spacing:-.035em}
+    h3{font-size:1.12rem;line-height:1.35}
+    p+p{margin-top:1rem}
+    .wrap{width:min(1180px,calc(100% - 48px));margin-inline:auto}
+    .masthead{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:20px;padding-block:22px;border-bottom:1px solid var(--line);
+    }
+    .brand{
+      font-size:1.35rem;font-weight:850;letter-spacing:-.055em;
+      text-decoration:none;white-space:nowrap;
+    }
+    .edition{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+    .top-link{font-size:.86rem;font-weight:700}
+    .category-section{padding-block:22px 28px;border-bottom:1px solid var(--line)}
+    .eyebrow{
+      font-size:.72rem;font-weight:800;letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .categories{
+      display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:8px;margin-top:13px;
+    }
+    .categories a{
+      display:flex;flex-direction:column;justify-content:center;
+      min-height:72px;padding:10px 13px;background:var(--white);
+      border:1px solid var(--line);border-radius:var(--radius);
+      text-decoration:none;font-size:.88rem;font-weight:750;
+    }
+    .categories a:hover{background:var(--lime);border-color:var(--ink)}
+    .categories small{font-size:.72rem;font-weight:450;color:var(--muted)}
+    .hero{
+      display:grid;grid-template-columns:1.12fr .88fr;
+      gap:64px;align-items:center;padding-block:56px 62px;
+    }
+    .hero h1{margin-top:18px}
+    .hero .intro{max-width:570px;margin-top:24px;font-size:1.08rem;color:var(--muted)}
+    .button{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:20px;min-height:49px;padding:12px 21px;
+      background:var(--ink);color:white;border:1px solid var(--ink);
+      border-radius:var(--radius);font-weight:700;font-size:.9rem;text-decoration:none;
+    }
+    .button:hover{background:var(--accent);border-color:var(--accent);color:white}
+    .hero .button{margin-top:25px}
+    .hero-note{margin-top:16px!important;font-size:.78rem;color:var(--muted)}
+    .hero-photo{position:relative;background:#fff;border:1px solid var(--line)}
+    .hero-photo img{width:100%;aspect-ratio:1.12;object-fit:contain}
+    .photo-label{
+      position:absolute;top:16px;left:16px;
+      padding:5px 9px;background:var(--paper);font-size:.68rem;
+      letter-spacing:.08em;text-transform:uppercase;
+    }
+    figcaption{
+      padding:12px 16px;border-top:1px solid var(--line);
+      font-size:.76rem;color:var(--muted);
+    }
+    .definition{
+      display:grid;grid-template-columns:220px 1fr;
+      gap:36px;padding:32px;background:var(--ink);color:var(--white);
+      border-radius:var(--radius);
+    }
+    .definition p{max-width:790px;font-size:1.05rem}
+    .definition .eyebrow{color:var(--lime)}
+    .section{padding-block:64px;border-bottom:1px solid var(--line)}
+    .section-head{
+      display:flex;align-items:flex-end;justify-content:space-between;
+      gap:32px;margin-bottom:30px;
+    }
+    .section-head .eyebrow{margin-bottom:12px;color:var(--accent)}
+    .section-head>p{max-width:350px;color:var(--muted);font-size:.92rem}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .step{border-top:2px solid var(--ink);padding-top:18px}
+    .number{font-family:Georgia,serif;color:var(--accent);font-size:2rem}
+    .step h3{margin:10px 0 12px}
+    .step p{font-size:.93rem;color:var(--muted)}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .gallery figure{background:var(--white);border:1px solid var(--line)}
+    .gallery img{width:100%;aspect-ratio:1;object-fit:contain;background:#fff}
+    .gallery figcaption{padding:18px}
+    .gallery h3{margin-bottom:8px}
+    .gallery p{font-size:.84rem}
+    .gallery a{display:inline-block;margin-top:12px;font-weight:750;font-size:.84rem}
+    .caption-note{font-size:.77rem;color:var(--muted);margin-top:16px}
+    .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius)}
+    table{width:100%;border-collapse:collapse;background:var(--white);font-size:.9rem}
+    caption{text-align:left;padding:15px 18px;background:var(--lime);font-weight:750}
+    th,td{text-align:left;vertical-align:top;padding:16px 18px;border-bottom:1px solid var(--line)}
+    thead th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+    tbody th{width:22%;font-weight:750}
+    tr:last-child th,tr:last-child td{border-bottom:0}
+    .journal{display:grid;grid-template-columns:1fr 1fr;gap:38px}
+    .journal article{padding:30px;background:var(--white);border:1px solid var(--line)}
+    .journal .eyebrow{color:var(--accent);margin-bottom:14px}
+    .journal h3{font-family:Georgia,serif;font-weight:400;font-size:1.75rem;margin-bottom:18px}
+    .journal p,.journal li{font-size:.93rem;color:var(--muted)}
+    .journal ul{padding-left:20px;margin-bottom:0}
+    .journal li+li{margin-top:8px}
+    .budget{
+      display:grid;grid-template-columns:1fr 1fr;gap:38px;
+      padding:34px;background:var(--lime);margin-top:30px;
+    }
+    .budget h3{font-family:Georgia,serif;font-weight:400;font-size:1.8rem;margin-bottom:13px}
+    .budget p{font-size:.92rem}
+    .formula{padding:20px;background:rgba(255,255,255,.6);font-weight:650;font-size:.92rem}
+    .faq-layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:60px}
+    .faq-layout .eyebrow{margin-bottom:12px;color:var(--accent)}
+    .faq-layout>div>p{margin-top:18px;color:var(--muted);font-size:.93rem}
+    details{border-top:1px solid var(--line)}
+    details:last-child{border-bottom:1px solid var(--line)}
+    summary{cursor:pointer;padding:19px 24px 19px 0;font-weight:750;font-size:.98rem}
+    details p{padding:0 20px 20px 0;color:var(--muted);font-size:.93rem}
+    .closing{
+      display:flex;justify-content:space-between;align-items:center;
+      gap:24px;padding-block:38px;
+    }
+    .closing h2{font-size:2rem}
+    .closing p{font-size:.9rem;color:var(--muted);margin-top:8px}
+    footer{border-top:1px solid var(--line);padding-block:24px 36px;color:var(--muted);font-size:.76rem}
+    .footer-row{display:flex;justify-content:space-between;gap:24px;margin-bottom:12px}
+    footer p{max-width:920px}
+    .sources{margin-top:20px}
+    .sources summary{padding-block:12px;font-size:.78rem}
+    .sources p{font-size:.76rem}
+    @media(min-width:900px){
+      .section{content-visibility:auto;contain-intrinsic-size:auto 650px}
+    }
+    @media(max-width:900px){
+      .categories{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .hero{gap:30px}
+      .definition{grid-template-columns:1fr;gap:14px}
+      .faq-layout{grid-template-columns:1fr;gap:26px}
+      .section-head{align-items:flex-start;flex-direction:column;gap:16px}
+      .section-head>p{max-width:600px}
+    }
+    @media(max-width:620px){
+      .wrap{width:calc(100% - 32px)}
+      .edition{display:none}
+      .categories{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .categories a{min-height:66px}
+      .hero{grid-template-columns:1fr;padding-block:34px;gap:26px}
+      .hero-photo{max-width:460px;width:100%;margin-inline:auto}
+      .hero-photo img{aspect-ratio:1.4}
+      .definition{padding:24px}
+      .section{padding-block:42px}
+      .steps,.gallery,.journal,.budget{grid-template-columns:1fr}
+      .gallery{gap:24px}
+      .gallery img{max-height:320px}
+      .steps{gap:26px}
+      .journal{gap:20px}
+      .journal article{padding:24px}
+      .budget{padding:24px;gap:20px}
+      th,td{padding:13px 12px}
+      table{min-width:590px}
+      .closing{align-items:flex-start;flex-direction:column}
+      .footer-row{flex-direction:column;gap:8px}
+    }
+    @media(prefers-reduced-motion:no-preference){
+      a{transition:background-color .15s,color .15s,border-color .15s}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebPage",
+        "@id":"#page",
+        "name":"FishGoo spreadsheet : catégories, tailles et guide QC",
+        "description":"Un guide indépendant en français pour organiser ses recherches, comparer les mesures et examiner les photos QC avant de consulter cafans.com.",
+        "inLanguage":"fr",
+        "about":{
+          "@type":"Thing",
+          "name":"FishGoo spreadsheet",
+          "description":"Une liste organisée de références produit utilisée pour préparer une comparaison."
+        },
+        "hasPart":[
+          {"@id":"#article-mesures"},
+          {"@id":"#article-qc"},
+          {"@id":"#faq"}
+        ]
+      },
+      {
+        "@type":"Article",
+        "@id":"#article-mesures",
+        "headline":"La bonne taille commence par un vêtement que vous possédez",
+        "inLanguage":"fr",
+        "articleBody":"Posez à plat un vêtement qui vous va bien et relevez ses mesures sans étirer le tissu. Pour un sweat, comparez la largeur de poitrine et la longueur du dos. Pour une veste, prévoyez les couches portées dessous. Pour un pantalon, comparez le tour de taille et l’entrejambe. Comparez toujours les mesures avec celles de la variante exacte."
+      },
+      {
+        "@type":"Article",
+        "@id":"#article-qc",
+        "headline":"Une photo QC utile répond à une question précise",
+        "inLanguage":"fr",
+        "articleBody":"Une image vendeur présente le produit ; une photo QC documente un exemplaire à un instant donné. Comparez la référence et la variante. Examinez les coutures, les finitions, le placement du motif et les dimensions visibles. Demandez une photo de détail lorsque la vue générale ne suffit pas. Les photos seules ne prouvent pas l’authenticité."
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"#faq",
+        "inLanguage":"fr",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"Qu’est-ce qu’un FishGoo spreadsheet ?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"C’est une liste organisée de références produit, souvent accompagnées de catégories, de variantes et de notes de comparaison. Elle sert à préparer une sélection ; les informations doivent être confirmées sur la fiche de destination."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Cette page propose-t-elle un fichier Google Sheets ?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Non. Cette page est un guide éditorial statique. Elle présente une méthode de comparaison et des accès aux catégories de cafans.com, sans fichier Google Sheets ni catalogue synchronisé."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Comment choisir sa taille ?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Comparez les mesures de la variante exacte avec celles d’un vêtement ou d’une paire qui vous convient. Vérifiez les unités et la méthode de mesure ; une lettre S, M ou L ne suffit pas."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Les photos QC garantissent-elles l’authenticité ?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Non. Elles aident à examiner un exemplaire et certains défauts visibles. Elles ne remplacent ni une preuve de provenance ni une authentification adaptée."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Comment préparer le budget de livraison ?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Additionnez le prix des articles, le transport local, les frais de service ou de paiement, le transport international et les taxes éventuellement applicables. Vérifiez le poids facturable et le devis actualisé avant de payer."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Où mènent les boutons de cette page ?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Les boutons de catégories ouvrent les rubriques indiquées sur cafans.com. Les autres liens ouvrent https://www.cafans.com. Cette page ne revendique aucune affiliation officielle avec FishGoo ou les marques illustrées."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/kudos/">
+</head>
+
+<body>
+  <header class="wrap masthead">
+    <a class="brand" href="https://www.cafans.com" aria-label="Consulter cafans.com">cafans.com</a>
+    <span class="edition">Le carnet de sélection · Édition française</span>
+    <a class="top-link" href="https://www.cafans.com">Explorer le site ↗</a>
+  </header>
+
+  <main class="wrap">
+    <section class="category-section" aria-labelledby="categories-title">
+      <h2 id="categories-title" class="eyebrow">Commencer par une catégorie</h2>
+      <nav class="categories" aria-label="Catégories sur cafans.com">
+        <a href="https://cafans.com/category-911-Shoes.html">Chaussures <small>Sneakers et autres modèles</small></a>
+        <a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Sweats et pulls <small>Coupes et superpositions</small></a>
+        <a href="https://cafans.com/category-913-T-Shirts.html">T-shirts <small>Basique ou pièce graphique</small></a>
+        <a href="https://cafans.com/category-914-Jackets.html">Vestes <small>Volume et longueur</small></a>
+        <a href="https://cafans.com/category-915-Pants%2FShorts.html">Pantalons et shorts <small>Taille et entrejambe</small></a>
+        <a href="https://cafans.com/category-916-Headwear.html">Casquettes et bonnets <small>Tour de tête et réglage</small></a>
+        <a href="https://cafans.com/category-917-Sets.html">Ensembles <small>Comparer le haut et le bas</small></a>
+        <a href="https://cafans.com/category-918-underwear%2Funderpants.html">Sous-vêtements <small>Matière et entretien</small></a>
+        <a href="https://cafans.com/category-919-Jersey.html">Maillots <small>Coupe et flocage</small></a>
+        <a href="https://cafans.com/category-920-Accessories.html">Accessoires <small>Bijoux et détails de style</small></a>
+      </nav>
+    </section>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Guide indépendant · Mode et méthode</p>
+        <h1 id="hero-title">FishGoo spreadsheet.<br>Le détail fait le choix.</h1>
+        <p class="intro">Une sélection réussie commence par quelques bonnes questions : quelle variante, quelles mesures, quelles finitions ? Ce carnet vous aide à comparer les informations avant de poursuivre votre recherche sur cafans.com.</p>
+        <a class="button" href="https://www.cafans.com">Consulter cafans.com <span aria-hidden="true">↗</span></a>
+        <p class="hero-note">Guide de lecture, sans prix annoncé, stock garanti ni commande sur cette page.</p>
+      </div>
+      <figure class="hero-photo">
+        <span class="photo-label">Repère visuel · Nike</span>
+        <img
+          src="https://nikeclprod.vtexassets.com/arquivos/ids/160793/CW2288_111_A_PREM.jpg?v=637654399803530000"
+          width="640"
+          height="640"
+          alt="Nike Air Force 1 blanche vue de profil, avec Swoosh blanc et semelle épaisse"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async">
+        <figcaption>Étudier une silhouette : profil, assemblage de la tige et forme de la semelle. Illustration de marque, sans indication de disponibilité sur cafans.com.</figcaption>
+      </figure>
+    </section>
+
+    <aside class="definition" aria-labelledby="definition-title">
+      <h2 id="definition-title" class="eyebrow">La réponse en bref</h2>
+      <p>Un <strong>FishGoo spreadsheet</strong> est une liste organisée de références produit destinée à faciliter la recherche. Son intérêt tient aux informations qui accompagnent chaque lien : catégorie, variante, mesures et observations. Une référence enregistrée reste un point de départ à vérifier.</p>
+    </aside>
+
+    <section class="section" aria-labelledby="method-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">01 / Organiser</p>
+          <h2 id="method-title">Moins de liens.<br>Plus d’informations utiles.</h2>
+        </div>
+        <p>Ce guide FishGoo spreadsheet privilégie une sélection courte que vous pouvez réellement comparer.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="number" aria-hidden="true">01</span>
+          <h3>Identifier la référence exacte</h3>
+          <p>Si votre recherche part de Weidian, Taobao ou 1688, conservez le lien source et l’identifiant produit. Notez la couleur, la taille et les options : deux images proches peuvent correspondre à des variantes différentes.</p>
+        </article>
+        <article class="step">
+          <span class="number" aria-hidden="true">02</span>
+          <h3>Comparer ce qui se mesure</h3>
+          <p>Ajoutez les dimensions utiles, la composition annoncée et la date de consultation. Pour vos recherches FishGoo spreadsheet chaussures, une longueur intérieure et une information sur la largeur sont plus utiles qu’une photo isolée.</p>
+        </article>
+        <article class="step">
+          <span class="number" aria-hidden="true">03</span>
+          <h3>Décider avec une raison</h3>
+          <p>Classez chaque piste : à conserver, à préciser ou à écarter. « Mesure manquante » indique une prochaine action concrète ; « joli modèle » explique seulement votre première impression.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="visual-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">02 / Observer</p>
+          <h2 id="visual-title">Trois familles.<br>Trois regards différents.</h2>
+        </div>
+        <p>Un motif, un fermoir ou une fermeture réglable ne se comparent pas de la même façon.</p>
+      </div>
+      <div class="gallery">
+        <figure>
+          <img
+            src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1751298339/838745_3HBC4_2600_001_100_0000_Light.jpg"
+            width="640"
+            height="640"
+            alt="Casquette Gucci en toile à motif GG beige et brun"
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <h3>Le volume d’une casquette</h3>
+            <p>Comparez la hauteur de la calotte, la courbe de la visière et la plage de réglage. Le tour de tête reste le premier repère.</p>
+            <a href="https://cafans.com/category-916-Headwear.html">Explorer les couvre-chefs ↗</a>
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="https://assets.christiandior.com/is/image/diorprod/42DOB070I600C540_E09?wid=640&amp;hei=640&amp;qlt=75&amp;fit=fit"
+            width="640"
+            height="640"
+            alt="Foulard carré Dior Oblique bleu marine à motifs et bande diagonale"
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <h3>Le dessin d’un foulard</h3>
+            <p>Vérifiez les dimensions, le rendu recto verso et les bords. Une vue rapprochée aide à examiner l’impression et les finitions.</p>
+            <a href="https://cafans.com/category-920-Accessories.html">Explorer les accessoires ↗</a>
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="https://hk.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-row-pendant--M03779_PM1_Cropped%20worn%20view.png?hei=640&amp;wid=640"
+            width="640"
+            height="640"
+            alt="Pendentif Louis Vuitton Monogram Row doré porté sur une chaîne au cou"
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <h3>Les proportions d’un bijou</h3>
+            <p>Regardez la longueur de chaîne, les dimensions du pendentif et le fermoir. Vérifiez la composition déclarée si votre peau est sensible.</p>
+            <a href="https://cafans.com/category-920-Accessories.html">Parcourir les accessoires ↗</a>
+          </figcaption>
+        </figure>
+      </div>
+      <p class="caption-note">Visuels de référence provenant de sites de marques. Ils illustrent des points de comparaison et ne représentent pas une sélection vérifiée du catalogue cafans.com. Aucune affiliation officielle n’est revendiquée.</p>
+    </section>
+
+    <section class="section" aria-labelledby="checks-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">03 / Comparer</p>
+          <h2 id="checks-title">La bonne question<br>pour chaque catégorie.</h2>
+        </div>
+        <p>Utilisez ces repères pour compléter votre propre tableau avant de choisir une variante.</p>
+      </div>
+      <div class="table-wrap" role="region" aria-label="Tableau des vérifications par catégorie" tabindex="0">
+        <table>
+          <caption>Fiche pratique : les informations à rechercher</caption>
+          <thead>
+            <tr>
+              <th scope="col">Catégorie</th>
+              <th scope="col">À relever</th>
+              <th scope="col">Question décisive</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Chaussures</th>
+              <td>Longueur intérieure, largeur, système de pointure, photos de la semelle.</td>
+              <td>Les mesures correspondent-elles à une paire qui vous convient ?</td>
+            </tr>
+            <tr>
+              <th scope="row">Sweats et t-shirts</th>
+              <td>Largeur à plat, épaules, longueur du dos et des manches.</td>
+              <td>La coupe souhaitée est-elle confirmée par les dimensions ?</td>
+            </tr>
+            <tr>
+              <th scope="row">Vestes</th>
+              <td>Poitrine, emmanchures, fermeture et composition annoncée.</td>
+              <td>Reste-t-il assez de place pour les couches portées dessous ?</td>
+            </tr>
+            <tr>
+              <th scope="row">Pantalons et shorts</th>
+              <td>Tour de taille, hauteur de fourche, entrejambe, largeur de jambe.</td>
+              <td>La taille est-elle mesurée au repos ou avec l’élastique étiré ?</td>
+            </tr>
+            <tr>
+              <th scope="row">Ensembles</th>
+              <td>Mesures séparées du haut et du bas, options de taille.</td>
+              <td>Les deux pièces conviennent-elles sans compromis de coupe ?</td>
+            </tr>
+            <tr>
+              <th scope="row">Sous-vêtements</th>
+              <td>Composition, élasticité, entretien et conditions de retour.</td>
+              <td>Les informations de matière et d’hygiène sont-elles explicites ?</td>
+            </tr>
+            <tr>
+              <th scope="row">Maillots</th>
+              <td>Largeur, longueur, type de coupe et détails du flocage.</td>
+              <td>La variante choisie correspond-elle au visuel et au marquage souhaités ?</td>
+            </tr>
+            <tr>
+              <th scope="row">Accessoires</th>
+              <td>Dimensions, composition, réglages, attaches et vues de détail.</td>
+              <td>Le fermoir ou le mécanisme est-il suffisamment documenté ?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="journal-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">04 / Le carnet pratique</p>
+          <h2 id="journal-title">Deux lectures avant<br>de finaliser une sélection.</h2>
+        </div>
+        <p>Des conseils concrets pour relier vos recherches à des critères observables.</p>
+      </div>
+      <div class="journal">
+        <article id="article-mesures" aria-labelledby="mesures-title">
+          <p class="eyebrow">Article / Guide des tailles FishGoo</p>
+          <h3 id="mesures-title">La bonne taille commence par un vêtement que vous possédez</h3>
+          <p>Posez à plat un vêtement qui vous va bien et relevez ses mesures sans étirer le tissu. Ce point de comparaison personnel évite de dépendre uniquement d’une étiquette S, M ou L.</p>
+          <p>Pour un sweat, comparez la largeur de poitrine et la longueur du dos. Pour une veste, prévoyez les couches portées dessous. Pour un pantalon, comparez le tour de taille et l’entrejambe.</p>
+          <ul>
+            <li>Utilisez la même unité, idéalement le centimètre.</li>
+            <li>Vérifiez si le tableau indique une largeur à plat ou un tour complet.</li>
+            <li>Comparez toujours les mesures avec celles de la variante exacte.</li>
+            <li>Si la méthode n’est pas précisée, demandez une mesure illustrée.</li>
+          </ul>
+        </article>
+        <article id="article-qc" aria-labelledby="qc-title">
+          <p class="eyebrow">Article / Photos QC FishGoo</p>
+          <h3 id="qc-title">Une photo QC utile répond à une question précise</h3>
+          <p>Une image vendeur présente le produit ; une photo QC documente un exemplaire à un instant donné. Comparez la référence et la variante avant d’utiliser une photo trouvée pour une autre commande.</p>
+          <p>Examinez les coutures, les finitions, le placement du motif et les dimensions visibles. Demandez une photo de détail lorsque la vue générale ne suffit pas.</p>
+          <ul>
+            <li>Pour une sneaker : profil, talon, semelle et symétrie.</li>
+            <li>Pour un vêtement : col, assemblages et mesures à plat.</li>
+            <li>Pour un accessoire : bords, attaches et mécanismes.</li>
+            <li>Les photos seules ne prouvent pas l’authenticité et ne permettent pas d’évaluer toute la durabilité.</li>
+          </ul>
+        </article>
+      </div>
+
+      <aside class="budget" aria-labelledby="budget-title">
+        <div>
+          <p class="eyebrow">Budget livraison FishGoo</p>
+          <h3 id="budget-title">Le prix de l’article n’est qu’une partie du budget.</h3>
+          <p>Avant de payer, vérifiez le devis actualisé, le poids facturable et les conditions de la ligne choisie. Selon le transporteur, le volume du colis peut compter autant que son poids réel.</p>
+        </div>
+        <div class="formula">
+          Articles + transport local + frais de service ou de paiement + transport international + taxes éventuellement applicables.
+          <p>Ajoutez les options de préparation si vous les choisissez. Vérifiez aussi les conditions de retour avant l’expédition : ce guide ne fixe aucun tarif ni délai.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section faq-layout" id="faq" aria-labelledby="faq-title">
+      <div>
+        <p class="eyebrow">05 / Réponses directes</p>
+        <h2 id="faq-title">Avant de poursuivre.</h2>
+        <p>Les réponses essentielles pour comprendre la portée du guide et préparer la prochaine étape.</p>
+      </div>
+      <div>
+        <details open>
+          <summary>Qu’est-ce qu’un FishGoo spreadsheet ?</summary>
+          <p>C’est une liste organisée de références produit, souvent accompagnées de catégories, de variantes et de notes de comparaison. Elle sert à préparer une sélection ; les informations doivent être confirmées sur la fiche de destination.</p>
+        </details>
+        <details>
+          <summary>Cette page propose-t-elle un fichier Google Sheets ?</summary>
+          <p>Non. Cette page est un guide éditorial statique. Elle présente une méthode de comparaison et des accès aux catégories de cafans.com, sans fichier Google Sheets ni catalogue synchronisé.</p>
+        </details>
+        <details>
+          <summary>Comment choisir sa taille ?</summary>
+          <p>Comparez les mesures de la variante exacte avec celles d’un vêtement ou d’une paire qui vous convient. Vérifiez les unités et la méthode de mesure ; une lettre S, M ou L ne suffit pas.</p>
+        </details>
+        <details>
+          <summary>Les photos QC garantissent-elles l’authenticité ?</summary>
+          <p>Non. Elles aident à examiner un exemplaire et certains défauts visibles. Elles ne remplacent ni une preuve de provenance ni une authentification adaptée.</p>
+        </details>
+        <details>
+          <summary>Comment préparer le budget de livraison ?</summary>
+          <p>Additionnez le prix des articles, le transport local, les frais de service ou de paiement, le transport international et les taxes éventuellement applicables. Vérifiez le poids facturable et le devis actualisé avant de payer.</p>
+        </details>
+        <details>
+          <summary>Où mènent les boutons de cette page ?</summary>
+          <p>Les boutons de catégories ouvrent les rubriques indiquées sur cafans.com. Les autres liens ouvrent https://www.cafans.com. Cette page ne revendique aucune affiliation officielle avec FishGoo ou les marques illustrées.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div>
+        <h2 id="closing-title">Votre prochain choix commence par une comparaison.</h2>
+        <p>Gardez vos mesures et vos questions à portée de main.</p>
+      </div>
+      <a class="button" href="https://www.cafans.com">Poursuivre sur cafans.com <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-row">
+        <a class="brand" href="https://www.cafans.com">cafans.com</a>
+        <span>Guide indépendant en français · FishGoo spreadsheet</span>
+      </div>
+      <p>Cette page fournit des repères de recherche et de comparaison. Elle ne traite aucune commande et ne certifie ni vendeur, ni produit, ni authenticité. Les marques citées appartiennent à leurs titulaires respectifs. Les images sont illustratives ; confirmez la référence, les conditions et les informations actuelles sur le site de destination.</p>
+      <details class="sources">
+        <summary>Repères éditoriaux et sources consultées</summary>
+        <p>Les thèmes de définition, de classement par catégorie et de contrôle visuel ont été confrontés aux contenus ou extraits publics de fishgoo.app, qcradar.com, fishgoo.net, usfansyupoo.com, fishgoo.info, fishgooreps.com, fishgoopicklist.com, fishgoowithqc.com, fishgoo.org.uk et fishgoo.delivery. Ces sites ne sont pas présentés comme des sources officielles. Leurs chiffres de catalogue, tarifs, promotions et appréciations commerciales ne sont pas repris.</p>
+        <p>Recherche éditoriale effectuée le 8 novembre 2026. L’ordre des dix premiers résultats Google n’a pas pu être confirmé. Visuels de référence : Nike Chile, Gucci, Dior et Louis Vuitton.</p>
+      </details>
+    </div>
+  </footer>
+</body>
+</html>
